@@ -20,7 +20,7 @@ export const sections: Section[] = [
 	},
 
 	{
-		name: "person",
+		name: "personal",
 		color: "#93c5fd",
 		links: [
 			{
