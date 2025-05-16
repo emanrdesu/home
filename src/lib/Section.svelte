@@ -1,5 +1,5 @@
 <script>
-	import Icon from '$lib/Icon.svelte';
+	import Icon from "$lib/Icon.svelte";
 
 	let { name, color, links } = $props();
 	let hover = $state(false);
@@ -11,17 +11,17 @@
 	onmouseenter={() => (hover = true)}
 	onmouseleave={() => (hover = false)}
 	onkeydown={(e) => {
-		if (e.key === ' ') {
+		if (e.key === " ") {
 			active = !active;
 		}
 
-		if (e.key === 'Enter') {
+		if (e.key === "Enter") {
 			if (e.target == e.currentTarget) {
 				active = !active;
 			}
 		}
 	}}
-	class="card p-2 opacity-70 ring-orange-200 outline-none hover:opacity-100 focus:ring-2"
+	class="card p-2 opacity-70 ring-[{color}] shadow outline-none hover:opacity-100 focus:ring-2"
 	style:color
 	class:active
 	class:opacity-90={active}
@@ -33,8 +33,12 @@
 	<nav class="flex flex-col justify-center gap-[0.25em] outline-inherit">
 		{#each links as { href, text }}
 			{@const klass =
-				'text-(--fg) hover:text-inherit focus:text-inherit opacity-70 focus:opacity-100'}
-			<a tabindex={hover || active ? 0 : -1} {href} class="outline-none {klass} oscilla">{text}</a>
+				"text-(--fg) hover:text-inherit focus:text-inherit opacity-70 focus:opacity-100"}
+			<a
+				tabindex={hover || active ? 0 : -1}
+				{href}
+				class="outline-none {klass} oscilla">{text}</a
+			>
 		{/each}
 	</nav>
 </div>

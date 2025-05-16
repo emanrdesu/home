@@ -5,9 +5,6 @@
     "npm:@sveltejs/kit@^2.16.0": "2.16.1_@sveltejs+vite-plugin-svelte@5.0.3__svelte@5.19.1___acorn@8.14.0__vite@6.0.11___lightningcss@1.29.1_svelte@5.19.1__acorn@8.14.0_vite@6.0.11__lightningcss@1.29.1",
     "npm:@sveltejs/vite-plugin-svelte@5": "5.0.3_svelte@5.19.1__acorn@8.14.0_vite@6.0.11__lightningcss@1.29.1",
     "npm:@tailwindcss/vite@4": "4.0.6_vite@6.0.11__lightningcss@1.29.1_lightningcss@1.29.1",
-    "npm:prettier-plugin-svelte@^3.3.3": "3.3.3_prettier@3.5.1_svelte@5.19.1__acorn@8.14.0",
-    "npm:prettier-plugin-tailwindcss@~0.6.11": "0.6.11_prettier@3.5.1_prettier-plugin-svelte@3.3.3__prettier@3.5.1__svelte@5.19.1___acorn@8.14.0_svelte@5.19.1__acorn@8.14.0",
-    "npm:prettier@^3.4.2": "3.5.1",
     "npm:svelte-check@4": "4.1.4_svelte@5.19.1__acorn@8.14.0_typescript@5.7.3",
     "npm:svelte@5": "5.19.1_acorn@8.14.0",
     "npm:tailwindcss@4": "4.0.6",
@@ -533,23 +530,6 @@
         "source-map-js"
       ]
     },
-    "prettier-plugin-svelte@3.3.3_prettier@3.5.1_svelte@5.19.1__acorn@8.14.0": {
-      "integrity": "sha512-yViK9zqQ+H2qZD1w/bH7W8i+bVfKrD8GIFjkFe4Thl6kCT9SlAsXVNmt3jCvQOCsnOhcvYgsoVlRV/Eu6x5nNw==",
-      "dependencies": [
-        "prettier",
-        "svelte"
-      ]
-    },
-    "prettier-plugin-tailwindcss@0.6.11_prettier@3.5.1_prettier-plugin-svelte@3.3.3__prettier@3.5.1__svelte@5.19.1___acorn@8.14.0_svelte@5.19.1__acorn@8.14.0": {
-      "integrity": "sha512-YxaYSIvZPAqhrrEpRtonnrXdghZg1irNg4qrjboCXrpybLWVs55cW2N3juhspVJiO0JBvYJT8SYsJpc8OQSnsA==",
-      "dependencies": [
-        "prettier",
-        "prettier-plugin-svelte"
-      ]
-    },
-    "prettier@3.5.1": {
-      "integrity": "sha512-hPpFQvHwL3Qv5AdRvBFMhnKo4tYxp0ReXiPn2bxkiohEX6mBeBwEpBSQTkD458RaaDKQMYSp4hX4UtfUTA5wDw=="
-    },
     "readdirp@4.1.2": {
       "integrity": "sha512-GDhwkLfywWL2s6vEjyhri+eXmfH6j1L7JE27WhqLeYzoh/A3DBaYGEj2H/HFZCn/kMfim73FXxEJTw06WtxQwg=="
     },
@@ -684,9 +664,6 @@
         "npm:@sveltejs/kit@^2.16.0",
         "npm:@sveltejs/vite-plugin-svelte@5",
         "npm:@tailwindcss/vite@4",
-        "npm:prettier-plugin-svelte@^3.3.3",
-        "npm:prettier-plugin-tailwindcss@~0.6.11",
-        "npm:prettier@^3.4.2",
         "npm:svelte-check@4",
         "npm:svelte@5",
         "npm:tailwindcss@4",

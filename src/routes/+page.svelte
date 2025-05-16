@@ -1,95 +1,45 @@
-<script>
-	import Icon from '$lib/Icon.svelte';
-	import Section from '$lib/Section.svelte';
-	import Search from '$lib/Search.svelte';
+<script lang="ts">
+	import Icon from "$lib/Icon.svelte";
+	import Section from "$lib/Section.svelte";
+	import Search from "$lib/Search.svelte";
+	import Hideable from "$lib/Hideable.svelte";
+	import { sections } from "$lib/sections";
 
-	const sections = [
-		{
-			name: 'chan',
-			color: '#00cc7a',
-			links: [
-				{ href: 'https://4chan.org/a', text: '/a/' },
-				{ href: 'https://4chan.org/c', text: '/c/' },
-				{ href: 'https://4chan.org/g', text: '/g/' },
-				{ href: 'https://4chan.org/wg', text: '/wg/' },
-				{ href: 'https://4chan.org/r9k', text: '/r9k/' },
-				{ href: 'https://4chan.org/pol', text: '/pol/' },
-				{ href: 'https://4chan.org/fit', text: '/fit/' },
-				{ href: 'https://4chan.org/wsg', text: '/wsg/' },
-				{ href: 'https://4chan.org/tv', text: '/tv/' },
-				{ href: 'https://4chan.org/t', text: '/t/' },
-				{ href: 'https://lainchan.org/%CE%BB/index.html', text: '/λ/' }
-			]
-		},
-
-		{
-			name: 'person',
-			color: '#93c5fd',
-			links: [
-				{ href: 'https://app.dataannotation.tech/users/sign_in', text: 'work' },
-				{ href: 'https://nelnet.studentaid.gov/account/login', text: 'loan' },
-				{ href: 'http://192.168.0.1', text: 'router' }
-			]
-		},
-
-		{
-			name: 'ai',
-			color: '#a5a4db',
-			links: [
-				{ href: 'https://chat.openai.com', text: 'chatgpt' },
-				{ href: 'https://gemini.google.com', text: 'gemini' },
-				{ href: 'https://claude.ai', text: 'claude' },
-				{ href: 'https://chat.deepseek.com', text: 'deepseek' }
-			]
-		},
-
-		{
-			name: 'anon',
-			color: '#f0a8d0',
-			links: [
-				{ href: 'https://xvideos.com', text: 'xvideos' },
-				{ href: 'https://4chan.org/gif', text: '/gif/' },
-				{ href: 'https://4chan.org/s', text: '/s/' }
-			]
-		},
-
-		{
-			name: '0x40',
-			color: '#85c742',
-			links: [
-				{ href: 'https://hues.kepstin.ca', text: 'hues' },
-				{ href: 'https://spook.mon.im/', text: 'spook' },
-				{ href: 'https://0x40.mon.im/', text: 'mon' },
-				{ href: 'https://420.mon.im/snoop.html', text: '420' }
-			]
-		}
-	];
+	const titles = ["foobar", "quxpom", "barbaz", "ducc"];
 
 	const icons = [
-		{ name: 'whatsapp', color: '#25D366', link: 'https://web.whatsapp.com' },
-		{ name: 'mail', color: '#df9f9f', link: 'https://mail.cock.li' },
-		{ name: 'bank', color: '#1680e9', link: 'https://chase.com' }
+		{ name: "whatsapp", color: "#25D366", link: "https://web.whatsapp.com" },
+		{
+			name: "telegram",
+			color: "#2aabee",
+			link: "https://web.telegram.org/k",
+		},
+		{ name: "mail", color: "#df9f9f", link: "https://mail.cock.li" },
+		{ name: "bank", color: "#1680e9", link: "https://chase.com" },
 	];
-
-	const titles = ['foobar', 'quxpom', 'barbaz'];
 </script>
 
 <svelte:head>
-	<title>{titles[Math.round(Math.random() * 2)]}</title>
+	<title>{titles.choice()}</title>
 </svelte:head>
 
 <div class="hero flex flex-col justify-center text-center">
 	{#if navigator.onLine}
-		<small class="fixed right-3 bottom-2 italic">
-			{#await fetch('http://ifconfig.me/ip').then((r) => r.text()) then ip}
-				{ip}
-			{/await}
-		</small>
+		{#await fetch("http://ifconfig.me/ip").then((r) => r.text()) then ip}
+			<Hideable>
+				<small class="fixed right-3 bottom-2 italic">
+					{ip}
+				</small>
+			</Hideable>
+		{/await}
 	{/if}
 
 	<div class="mb-6 flex flex-wrap gap-8">
 		{#each icons as { name, color, link }}
-			<a class="oscilla rounded-lg ring-orange-200 outline-none focus:ring-2" href={link}>
+			<a
+				class="oscilla rounded-lg outline-none ring-gray-300 focus:ring-2"
+				href={link}
+			>
 				<Icon {name} />
 			</a>
 		{/each}
@@ -97,7 +47,7 @@
 
 	<Search />
 
-	<div class="section-container">
+	<div class="section-grid">
 		<div id="chan">
 			<Section {...sections[0]} />
 		</div>
@@ -116,7 +66,7 @@
 		gap: 0.2rem;
 	}
 
-	.section-container {
+	.section-grid {
 		display: grid;
 		grid-template-columns: 1fr;
 		align-items: stretch;
@@ -128,13 +78,13 @@
 	}
 
 	@media (min-width: 45ch) {
-		.section-container {
+		.section-grid {
 			grid-template-columns: 1fr 1fr;
 		}
 	}
 
 	@media (min-width: 63ch) {
-		.section-container {
+		.section-grid {
 			grid-template-columns: repeat(3, 1fr);
 		}
 
