@@ -7,6 +7,7 @@
 </script>
 
 <div
+	role="button"
 	tabindex={hover ? -1 : 0}
 	onmouseenter={() => (hover = true)}
 	onmouseleave={() => (hover = false)}
@@ -48,7 +49,7 @@
 		background-color: #36384a;
 		width: 100%;
 		min-width: 17ch;
-		min-height: 15ch;
+		min-height: 17ch;
 		text-align: center;
 
 		padding-block: 1.5em;

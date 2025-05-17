@@ -4,6 +4,7 @@
 	import Search from "$lib/Search.svelte";
 	import Hideable from "$lib/Hideable.svelte";
 	import { sections } from "$lib/sections";
+	import { sample } from "lodash-es";
 
 	const titles = ["foobar", "quxpom", "barbaz", "ducc"];
 
@@ -20,7 +21,7 @@
 </script>
 
 <svelte:head>
-	<title>{titles.choice()}</title>
+	<title>{sample(titles)}</title>
 </svelte:head>
 
 <div class="hero flex flex-col justify-center text-center">
@@ -35,7 +36,7 @@
 	{/if}
 
 	<div class="mb-6 flex flex-wrap gap-8">
-		{#each icons as { name, color, link }}
+		{#each icons as { name, link }}
 			<a
 				class="oscilla rounded-lg outline-none ring-gray-300 focus:ring-2"
 				href={link}
@@ -48,10 +49,7 @@
 	<Search />
 
 	<div class="section-grid">
-		<div id="chan">
-			<Section {...sections[0]} />
-		</div>
-		{#each sections.slice(1) as section}
+		{#each sections as section}
 			<Section {...section} />
 		{/each}
 	</div>
@@ -68,28 +66,8 @@
 
 	.section-grid {
 		display: grid;
-		grid-template-columns: 1fr;
-		align-items: stretch;
-		margin-left: auto;
-		margin-right: auto;
+		grid-template-columns: repeat(3, 1fr);
 		gap: 1rem;
 		padding: 2rem;
-		max-width: 80ch;
-	}
-
-	@media (min-width: 45ch) {
-		.section-grid {
-			grid-template-columns: 1fr 1fr;
-		}
-	}
-
-	@media (min-width: 63ch) {
-		.section-grid {
-			grid-template-columns: repeat(3, 1fr);
-		}
-
-		#chan {
-			grid-row: span 2;
-		}
 	}
 </style>
